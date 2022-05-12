@@ -3,3 +3,11 @@
 ################################################################################
 
 /.vs/ContactApp
+/Report/Report.API/bin/Debug/net5.0
+/Report/Report.API/obj
+/Report/Report.Infrastructure/bin/Debug/net5.0
+/Report/Report.Infrastructure/obj
+/Contact/Contact.API/bin/Debug/net5.0
+/Contact/Contact.API/obj
+/Contact/Contact.Infrastructure/bin/Debug/net5.0
+/Contact/Contact.Infrastructure/obj

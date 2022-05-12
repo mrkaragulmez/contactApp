@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mYGgwOi5t6BM2kEEX92wMlwWIvVZuT5bagEotyi+Wr5Kiwb80vEtV8lwyDJ6qlto1CgYl43X8kKtSaxVwgb3Kg==",
+  "dgSpecHash": "CgZZrPz1C4V9K4OvR58VrjTgFMQ8P5w4qLVI8ZyL/uZnwamko3cSz8nzI81BFbBCoJB+pBJNJjbSr30a7YkxMg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mrkaragulmez\\source\\repos\\mrkaragulmez\\contactApp\\ContactApp.csproj",
+  "projectFilePath": "C:\\Users\\mrkaragulmez\\source\\repos\\mrkaragulmez\\ContactApp\\Core\\ContactApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mrkaragulmez\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\mrkaragulmez\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

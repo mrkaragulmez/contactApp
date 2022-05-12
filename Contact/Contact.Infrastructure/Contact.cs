@@ -10,6 +10,6 @@ namespace Contact.Infrastructure
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string CompanyName { get; set; }
-        public ICollection<ContactDetail> ContactDetails { get; set; }
+        public IEnumerable<ContactDetail> ContactDetails { get; set; }
     }
 }

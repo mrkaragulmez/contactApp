@@ -44,6 +44,18 @@
           "lib/netstandard2.0/RabbitMQ.Client.dll": {}
         }
       },
+      "RestSharp/107.3.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Text.Json": "5.0.0"
+        },
+        "compile": {
+          "lib/net5.0/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/RestSharp.dll": {}
+        }
+      },
       "Swashbuckle.AspNetCore/5.6.3": {
         "type": "package",
         "dependencies": {
@@ -105,6 +117,15 @@
         },
         "runtime": {
           "lib/netcoreapp2.1/_._": {}
+        }
+      },
+      "System.Text.Json/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.0/System.Text.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/System.Text.Json.dll": {}
         }
       },
       "System.Threading.Channels/4.7.1": {
@@ -226,6 +247,24 @@
         "rabbitmq.client.nuspec"
       ]
     },
+    "RestSharp/107.3.0": {
+      "sha512": "qu+A+VAnVLX3OeWVNm11UJz0aVErqSfYqIiOUbJM9x98uLymCOoL/oXRAjMb6XHra27WXxHmzy9EKEOKXWR6Pw==",
+      "type": "package",
+      "path": "restsharp/107.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net5.0/RestSharp.dll",
+        "lib/net5.0/RestSharp.xml",
+        "lib/net6.0/RestSharp.dll",
+        "lib/net6.0/RestSharp.xml",
+        "lib/netstandard2.0/RestSharp.dll",
+        "lib/netstandard2.0/RestSharp.xml",
+        "restsharp.107.3.0.nupkg.sha512",
+        "restsharp.nuspec",
+        "restsharp.png"
+      ]
+    },
     "Swashbuckle.AspNetCore/5.6.3": {
       "sha512": "UkL9GU0mfaA+7RwYjEaBFvAzL8qNQhNqAeV5uaWUu/Z+fVgvK9FHkGCpTXBqSQeIHuZaIElzxnLDdIqGzuCnVg==",
       "type": "package",
@@ -312,6 +351,28 @@
         "version.txt"
       ]
     },
+    "System.Text.Json/5.0.0": {
+      "sha512": "+luxMQNZ2WqeffBU7Ml6njIvxc8169NW2oU+ygNudXQGZiarjE7DOtN7bILiQjTZjkmwwRZGTtLzmdrSI/Ustw==",
+      "type": "package",
+      "path": "system.text.json/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Text.Json.dll",
+        "lib/net461/System.Text.Json.xml",
+        "lib/netcoreapp3.0/System.Text.Json.dll",
+        "lib/netcoreapp3.0/System.Text.Json.xml",
+        "lib/netstandard2.0/System.Text.Json.dll",
+        "lib/netstandard2.0/System.Text.Json.xml",
+        "system.text.json.5.0.0.nupkg.sha512",
+        "system.text.json.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "System.Threading.Channels/4.7.1": {
       "sha512": "6akRtHK/wab3246t4p5v3HQrtQk8LboOt5T4dtpNgsp3zvDeM4/Gx8V12t0h+c/W9/enUrilk8n6EQqdQorZAA==",
       "type": "package",
@@ -353,6 +414,7 @@
       "Newtonsoft.Json >= 13.0.1",
       "RabbitMQ.Client >= 6.3.0",
       "Report.Infrastructure >= 1.0.0",
+      "RestSharp >= 107.3.0",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
   },
@@ -409,6 +471,10 @@
           "RabbitMQ.Client": {
             "target": "Package",
             "version": "[6.3.0, )"
+          },
+          "RestSharp": {
+            "target": "Package",
+            "version": "[107.3.0, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",

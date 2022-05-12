@@ -2,15 +2,17 @@
 using Contact.API.Models.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Contact.API.Migrations
 {
     [DbContext(typeof(ContactDBContext))]
-    partial class ContactDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220512144426_120520221744")]
+    partial class _120520221744
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

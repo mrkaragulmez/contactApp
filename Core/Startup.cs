@@ -37,7 +37,7 @@ namespace ContactApp
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ContactApp v1"));
+                //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ContactApp v1"));
             }
 
             app.UseHttpsRedirection();
@@ -48,7 +48,10 @@ namespace ContactApp
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                //endpoints.MapControllers();
             });
         }
     }

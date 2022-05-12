@@ -25,45 +25,43 @@ namespace ContactApp.Controllers
         }
 
         [HttpPost]
-        public async Task DeleteContactAsync(Contact.Infrastructure.Contact contact)
+        [Route("deletecontact/{id}")]
+        public async Task DeleteContactAsync(int id)
         {
-            await contactRepository.DeleteContactAsync(contact);
-        }
-
-        [HttpPost]
-        public async Task DeleteContactAsync(int contactId)
-        {
-            await contactRepository.DeleteContactAsync(contactId);
-        }
-
-        [HttpPost]
-        public async Task<Contact.Infrastructure.Contact> GetContactAsync(int contactId)
-        {
-            return await contactRepository.GetContactAsync(contactId);
+            await contactRepository.DeleteContactAsync(id);
         }
 
         [HttpGet]
+        [Route("getcontact/{id}")]
+        public async Task<Contact.Infrastructure.Contact> GetContactAsync(int id)
+        {
+            return await contactRepository.GetContactAsync(id);
+        }
+
+        [HttpGet]
+        [Route("getcontacts")]
         public async Task<IEnumerable<Contact.Infrastructure.Contact>> GetContactsAsync()
         {
             return await contactRepository.GetContactsAsync();
         }
 
         [HttpPost]
-        public async Task<int> InsertContactDetailAsync(int contactId, ContactDetail contactDetail)
+        [Route("insertcontactdetail/{id}")]
+        public async Task<int> InsertContactDetailAsync(int id, ContactDetail contactDetail)
         {
-            return await contactRepository.InsertContactDetailAsync(contactId, contactDetail);
+            return await contactRepository.InsertContactDetailAsync(id, contactDetail);
         }
 
         [HttpPost]
-        public async Task<int> RemoveAllContactDetailAsync(int contactId)
+        public async Task<int> RemoveAllContactDetailAsync(int id)
         {
-            return await contactRepository.RemoveAllContactDetailAsync(contactId);
+            return await contactRepository.RemoveAllContactDetailAsync(id);
         }
 
         [HttpPost]
-        public async Task<int> RemoveContactDetailAsync(int contactDetailId)
+        public async Task<int> RemoveContactDetailAsync(int id)
         {
-            return await contactRepository.RemoveContactDetailAsync(contactDetailId);
+            return await contactRepository.RemoveContactDetailAsync(id);
         }
 
         [HttpPost]
@@ -79,9 +77,9 @@ namespace ContactApp.Controllers
         }
 
         [HttpPost]
-        public async Task<Report.Infrastructure.Report> GetReportAsync(int reportId)
+        public async Task<Report.Infrastructure.Report> GetReportAsync(int id)
         {
-            return await reportRepository.GetReportAsync(reportId);
+            return await reportRepository.GetReportAsync(id);
         }
 
         [HttpGet]

@@ -9,7 +9,7 @@ namespace Report.Infrastructure
         public int ID { get; set; }
         public DateTime RequestDate { get; set; }
         public string FilePath { get; set; }
-        public bool Status { get; set; }
+        public string Status { get; set; } = "PREPEARING";
         
     }
 }

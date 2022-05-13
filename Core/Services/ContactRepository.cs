@@ -1,6 +1,5 @@
 ﻿using Contact.Infrastructure;
 using ContactApp.Repositories;
-using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RestSharp;
@@ -13,7 +12,22 @@ namespace ContactApp.Services
 {
     public class ContactRepository : IContactRepository
     {
-        IConnection connection;
+        public async Task<IEnumerable<Contact.Infrastructure.Contact>> GetContactsAsync()
+        {
+            RestClient restClient = new RestClient("http://localhost:6561");
+            RestRequest restRequest = new RestRequest("/contact", Method.Get);
+            RestResponse restResponse = await restClient.ExecuteAsync(restRequest);
+            return JsonConvert.DeserializeObject<IEnumerable<Contact.Infrastructure.Contact>>(restResponse.Content);
+
+        }
+        public async Task<Contact.Infrastructure.Contact> GetContactAsync(int contactId)
+        {
+            RestClient restClient = new RestClient("http://localhost:6561");
+            RestRequest restRequest = new RestRequest($"/contact/{contactId}", Method.Get);
+            RestResponse restResponse = await restClient.ExecuteAsync(restRequest);
+            return JsonConvert.DeserializeObject<Contact.Infrastructure.Contact>(restResponse.Content);
+        }
+
         public async Task<int> CreateContactAsync(Contact.Infrastructure.Contact contact)
         {
             RestClient restClient = new RestClient("http://localhost:6561");
@@ -26,64 +40,25 @@ namespace ContactApp.Services
         public async Task DeleteContactAsync(int contactId)
         {
             RestClient restClient = new RestClient("http://localhost:6561");
-            RestRequest restRequest = new RestRequest("/contact", Method.Delete);
-            restRequest.AddParameter("id", contactId);
-            RestResponse restResponse = await restClient.ExecuteAsync(restRequest);
-            JsonConvert.DeserializeObject<int>(restResponse.Content);
+            RestRequest restRequest = new RestRequest($"/contact/{contactId}", Method.Delete);
+            await restClient.ExecuteAsync(restRequest);
         }
 
-        public async Task<Contact.Infrastructure.Contact> GetContactAsync(int contactId)
+        public async Task<int> InsertContactDetailAsync(ContactDetail contactDetail)
         {
             RestClient restClient = new RestClient("http://localhost:6561");
-            RestRequest restRequest = new RestRequest($"/contact/{contactId}", Method.Get);
+            RestRequest restRequest = new RestRequest("/contact/insertcontactdetail", Method.Post);
+            restRequest.AddJsonBody(contactDetail);
             RestResponse restResponse = await restClient.ExecuteAsync(restRequest);
-            return JsonConvert.DeserializeObject<Contact.Infrastructure.Contact>(restResponse.Content);
+            return JsonConvert.DeserializeObject<int>(restResponse.Content);
         }
 
-        public async Task<IEnumerable<Contact.Infrastructure.Contact>> GetContactsAsync()
+
+        public async Task RemoveContactDetailAsync(int contactDetailId)
         {
             RestClient restClient = new RestClient("http://localhost:6561");
-            RestRequest restRequest = new RestRequest("/contact", Method.Get);
-            RestResponse restResponse = await restClient.ExecuteAsync(restRequest);
-            return JsonConvert.DeserializeObject<IEnumerable<Contact.Infrastructure.Contact>>(restResponse.Content);
-
-            //if (connection == null || !connection.IsOpen)
-            //    connection = GetConnection();
-            //AddLog("Connection is open now");
-        }
-
-        public async Task<int> InsertContactDetailAsync(int contactId, ContactDetail contactDetail)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public async Task<int> RemoveAllContactDetailAsync(int contactId)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public async Task<int> RemoveContactDetailAsync(int contactDetailId)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public async Task<int> RemoveContactDetailAsync(ContactDetail contactDetail)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private IConnection GetConnection()
-        {
-            ConnectionFactory connectionFactory = new ConnectionFactory()
-            {
-                Uri = new Uri("amqp://guest:guest@rabbitmq:5672")
-            };
-            return connectionFactory.CreateConnection();
-        }
-
-        private void AddLog(string logMessage)
-        {
-            Debug.WriteLine(logMessage);
+            RestRequest restRequest = new RestRequest($"/contact/removecontactdetail/{contactDetailId}", Method.Delete);
+            await restClient.ExecuteAsync(restRequest);
         }
     }
 }

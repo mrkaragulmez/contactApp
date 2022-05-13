@@ -5,16 +5,10 @@ namespace Contact.Infrastructure
     public class ContactDetail
     {
         [Key]
-        public int ID { get; set; }
-        public Information InformationType { get; set; }
+        public int ContactDetailID { get; set; }
+        public string InformationType { get; set; }
         public string InformationContent { get; set; }
-        public Contact Contact { get; set; }
+        public int ContactID { get; set; }
 
-    }
-    public enum Information
-    {
-        Gsm,
-        Email,
-        Location
     }
 }

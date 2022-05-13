@@ -8,11 +8,11 @@ namespace Contact.API.Models.Data
         public ContactDBContext(DbContextOptions<ContactDBContext> options) : base(options) { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Infrastructure.Contact>()
-                .HasMany(c => c.ContactDetails)
-                .WithOne(e => e.Contact)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.SetNull);
+            //modelBuilder.Entity<Infrastructure.Contact>()
+            //    .HasMany(c => c.ContactDetails)
+            //    .WithOne(e => e.Contact)
+            //    .IsRequired()
+            //    .OnDelete(DeleteBehavior.SetNull);
 
             base.OnModelCreating(modelBuilder);
         }

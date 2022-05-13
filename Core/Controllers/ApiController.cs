@@ -17,8 +17,24 @@ namespace ContactApp.Controllers
             contactRepository = _contactRepository;
             reportRepository = _reportRepository;
         }
+        #region Contact
+
+        [HttpGet]
+        [Route("getcontacts")]
+        public async Task<IEnumerable<Contact.Infrastructure.Contact>> GetContactsAsync()
+        {
+            return await contactRepository.GetContactsAsync();
+        }
+
+        [HttpGet]
+        [Route("getcontact/{id}")]
+        public async Task<Contact.Infrastructure.Contact> GetContactAsync(int id)
+        {
+            return await contactRepository.GetContactAsync(id);
+        }
 
         [HttpPost]
+        [Route("createcontact")]
         public async Task<int> CreateContact(Contact.Infrastructure.Contact contact)
         {
             return await contactRepository.CreateContactAsync(contact);
@@ -31,61 +47,48 @@ namespace ContactApp.Controllers
             await contactRepository.DeleteContactAsync(id);
         }
 
+
+        #endregion
+        
+        #region ContactDetail
+        [HttpPost]
+        [Route("insertcontactdetail")]
+        public async Task<int> InsertContactDetailAsync(ContactDetail contactDetail)
+        {
+            return await contactRepository.InsertContactDetailAsync(contactDetail);
+        }
+
+        [HttpPost]
+        [Route("removecontactdetail/{id}")]
+        public async Task RemoveContactDetailAsync(int id)
+        {
+            await contactRepository.RemoveContactDetailAsync(id);
+        }
+        #endregion
+
+        #region Report
+        [HttpPost]
+        [Route("createreport")]
+        public async Task<int> CreateReportAsync()
+        {
+            return await reportRepository.CreateReportAsync();
+        }
+
         [HttpGet]
-        [Route("getcontact/{id}")]
-        public async Task<Contact.Infrastructure.Contact> GetContactAsync(int id)
-        {
-            return await contactRepository.GetContactAsync(id);
-        }
-
-        [HttpGet]
-        [Route("getcontacts")]
-        public async Task<IEnumerable<Contact.Infrastructure.Contact>> GetContactsAsync()
-        {
-            return await contactRepository.GetContactsAsync();
-        }
-
-        [HttpPost]
-        [Route("insertcontactdetail/{id}")]
-        public async Task<int> InsertContactDetailAsync(int id, ContactDetail contactDetail)
-        {
-            return await contactRepository.InsertContactDetailAsync(id, contactDetail);
-        }
-
-        [HttpPost]
-        public async Task<int> RemoveAllContactDetailAsync(int id)
-        {
-            return await contactRepository.RemoveAllContactDetailAsync(id);
-        }
-
-        [HttpPost]
-        public async Task<int> RemoveContactDetailAsync(int id)
-        {
-            return await contactRepository.RemoveContactDetailAsync(id);
-        }
-
-        [HttpPost]
-        public async Task<int> RemoveContactDetailAsync(ContactDetail contactDetail)
-        {
-            return await contactRepository.RemoveContactDetailAsync(contactDetail);
-        }
-
-        [HttpPost]
-        public async Task<int> CreateReportAsync(Report.Infrastructure.Report report)
-        {
-            return await reportRepository.CreateReportAsync(report);
-        }
-
-        [HttpPost]
+        [Route("getreport/{id}")]
         public async Task<Report.Infrastructure.Report> GetReportAsync(int id)
         {
             return await reportRepository.GetReportAsync(id);
         }
 
         [HttpGet]
+        [Route("getreports")]
         public async Task<IEnumerable<Report.Infrastructure.Report>> GetReportsAsync()
         {
             return await reportRepository.GetReportsAsync();
         }
+        #endregion
+
+
     }
 }

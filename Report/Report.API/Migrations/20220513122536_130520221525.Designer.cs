@@ -10,15 +10,15 @@ using Report.API.Models.Data;
 namespace Report.API.Migrations
 {
     [DbContext(typeof(ReportDBContext))]
-    [Migration("20220511204433_110520222344")]
-    partial class _110520222344
+    [Migration("20220513122536_130520221525")]
+    partial class _130520221525
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
-                .HasAnnotation("ProductVersion", "5.0.17")
+                .HasAnnotation("ProductVersion", "5.0.16")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
             modelBuilder.Entity("Report.Infrastructure.Report", b =>
@@ -34,8 +34,8 @@ namespace Report.API.Migrations
                     b.Property<DateTime>("RequestDate")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<bool>("Status")
-                        .HasColumnType("boolean");
+                    b.Property<string>("Status")
+                        .HasColumnType("text");
 
                     b.HasKey("ID");
 

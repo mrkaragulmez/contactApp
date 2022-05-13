@@ -9,20 +9,20 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Contact.API.Migrations
 {
     [DbContext(typeof(ContactDBContext))]
-    [Migration("20220510232231_110520220222")]
-    partial class _110520220222
+    [Migration("20220513121900_130520221518")]
+    partial class _130520221518
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
-                .HasAnnotation("ProductVersion", "5.0.17")
+                .HasAnnotation("ProductVersion", "5.0.16")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
             modelBuilder.Entity("Contact.Infrastructure.Contact", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("ContactID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
@@ -36,14 +36,14 @@ namespace Contact.API.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("text");
 
-                    b.HasKey("ID");
+                    b.HasKey("ContactID");
 
                     b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("Contact.Infrastructure.ContactDetail", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("ContactDetailID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
@@ -54,10 +54,10 @@ namespace Contact.API.Migrations
                     b.Property<string>("InformationContent")
                         .HasColumnType("text");
 
-                    b.Property<int>("InformationType")
-                        .HasColumnType("integer");
+                    b.Property<string>("InformationType")
+                        .HasColumnType("text");
 
-                    b.HasKey("ID");
+                    b.HasKey("ContactDetailID");
 
                     b.HasIndex("ContactID");
 
@@ -66,13 +66,11 @@ namespace Contact.API.Migrations
 
             modelBuilder.Entity("Contact.Infrastructure.ContactDetail", b =>
                 {
-                    b.HasOne("Contact.Infrastructure.Contact", "Contact")
+                    b.HasOne("Contact.Infrastructure.Contact", null)
                         .WithMany("ContactDetails")
                         .HasForeignKey("ContactID")
-                        .OnDelete(DeleteBehavior.SetNull)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Contact");
                 });
 
             modelBuilder.Entity("Contact.Infrastructure.Contact", b =>

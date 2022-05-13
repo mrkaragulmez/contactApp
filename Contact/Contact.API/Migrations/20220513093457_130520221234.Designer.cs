@@ -9,8 +9,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Contact.API.Migrations
 {
     [DbContext(typeof(ContactDBContext))]
-    [Migration("20220512144426_120520221744")]
-    partial class _120520221744
+    [Migration("20220513093457_130520221234")]
+    partial class _130520221234
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,7 +22,7 @@ namespace Contact.API.Migrations
 
             modelBuilder.Entity("Contact.Infrastructure.Contact", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("ContactID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
@@ -36,14 +36,14 @@ namespace Contact.API.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("text");
 
-                    b.HasKey("ID");
+                    b.HasKey("ContactID");
 
                     b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("Contact.Infrastructure.ContactDetail", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("ContactDetailID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
@@ -57,7 +57,7 @@ namespace Contact.API.Migrations
                     b.Property<int>("InformationType")
                         .HasColumnType("integer");
 
-                    b.HasKey("ID");
+                    b.HasKey("ContactDetailID");
 
                     b.HasIndex("ContactID");
 
@@ -66,13 +66,11 @@ namespace Contact.API.Migrations
 
             modelBuilder.Entity("Contact.Infrastructure.ContactDetail", b =>
                 {
-                    b.HasOne("Contact.Infrastructure.Contact", "Contact")
+                    b.HasOne("Contact.Infrastructure.Contact", null)
                         .WithMany("ContactDetails")
                         .HasForeignKey("ContactID")
-                        .OnDelete(DeleteBehavior.SetNull)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Contact");
                 });
 
             modelBuilder.Entity("Contact.Infrastructure.Contact", b =>

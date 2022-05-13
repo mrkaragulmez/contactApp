@@ -11,3 +11,8 @@
 /Contact/Contact.API/obj
 /Contact/Contact.Infrastructure/bin/Debug/net5.0
 /Contact/Contact.Infrastructure/obj
+/.vs
+/Background/BackgroundService/bin/Debug/net5.0
+/Background/BackgroundService/obj
+/Core/obj/Release/net5.0
+/Report/Report.API/.vs/Report.API

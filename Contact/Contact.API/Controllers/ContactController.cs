@@ -25,15 +25,15 @@ namespace Contact.API.Controllers
         [HttpGet]
         public async Task<IEnumerable<Infrastructure.Contact>> GetContacts()
         {
-            return await _context.Contacts.ToListAsync();
+            return await _context.Contacts.Include(x => x.ContactDetails).ToListAsync();
         }
 
         // GET: contact/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Infrastructure.Contact>> GetContact(int id)
         {
-            Infrastructure.Contact contact = await _context.Contacts.FindAsync(id);
-
+            Infrastructure.Contact contact = await _context.Contacts.Include(x => x.ContactDetails).FirstOrDefaultAsync(x => x.ContactID == id);
+            
             if (contact == null)
                 return NotFound();
             
@@ -49,7 +49,7 @@ namespace Contact.API.Controllers
             _context.Contacts.Add(contact);
             await _context.SaveChangesAsync();
 
-            return contact.ID;
+            return contact.ContactID;
         }
 
         // DELETE: api/Gateway/5
@@ -68,9 +68,38 @@ namespace Contact.API.Controllers
             return NoContent();
         }
 
+        [HttpPost]
+        [Route("insertcontactdetail")]
+        public async Task<int> InsertContactDetail(ContactDetail contactDetail)
+        {
+            ContactDetail _contactDetail = new ContactDetail();
+            _contactDetail.ContactID = contactDetail.ContactID;
+            _contactDetail.InformationType = contactDetail.InformationType;
+            _contactDetail.InformationContent = contactDetail.InformationContent;
+            _context.ContactDetails.Add(_contactDetail);
+            await _context.SaveChangesAsync();
+
+            return _contactDetail.ContactID;
+        }
+
+        [HttpDelete]
+        [Route("removecontactdetail/{id}")]
+        public async Task<IActionResult> RemoveContactDetail(int id)
+        {
+            ContactDetail contactDetail = await _context.ContactDetails.FindAsync(id);
+            if (contactDetail == null)
+            {
+                return NotFound();
+            }
+            _context.ContactDetails.Remove(contactDetail);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
         private bool ContactExists(int id)
         {
-            return _context.Contacts.Any(e => e.ID == id);
+            return _context.Contacts.Any(e => e.ContactID == id);
         }
     }
 }

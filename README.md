@@ -11,3 +11,4 @@ Projeyi Başlatmak İçin;
 4) Migration'lar yapılıp db'ler hazır hâle getirilmeli
 
 Postman Collection = https://documenter.getpostman.com/view/13741872/UyxhonnT
+Not: DatabasesBackups klasöründe ilgili db yedekleri bulunmaktadır.

@@ -41,11 +41,11 @@ namespace Report.API.Controllers
             if (saved > 0)
             {
                 CreateDocument(new { ID = report.ID, FilePath = report.FilePath });
-                return CreatedAtAction("GetReport", new { id = report.ID }, report);
+                return report;
             }
             else
             {
-                return CreatedAtAction("GetReport", null);
+                return report;
             }
         }
 

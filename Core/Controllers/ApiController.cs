@@ -53,7 +53,7 @@ namespace ContactApp.Controllers
         #region ContactDetail
         [HttpPost]
         [Route("insertcontactdetail")]
-        public async Task<int> InsertContactDetailAsync(ContactDetail contactDetail)
+        public async Task<Contact.Infrastructure.Contact> InsertContactDetailAsync(ContactDetail contactDetail)
         {
             return await contactRepository.InsertContactDetailAsync(contactDetail);
         }
@@ -69,7 +69,7 @@ namespace ContactApp.Controllers
         #region Report
         [HttpPost]
         [Route("createreport")]
-        public async Task<int> CreateReportAsync()
+        public async Task<Report.Infrastructure.Report> CreateReportAsync()
         {
             return await reportRepository.CreateReportAsync();
         }

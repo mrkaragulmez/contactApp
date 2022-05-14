@@ -10,7 +10,7 @@ namespace ContactApp.Repositories
         public Task<Contact.Infrastructure.Contact> GetContactAsync(int contactId);
         public Task<int> CreateContactAsync(Contact.Infrastructure.Contact contact);
         public Task DeleteContactAsync(int contactId);
-        public Task<int> InsertContactDetailAsync(Contact.Infrastructure.ContactDetail contactDetail);
+        public Task<Contact.Infrastructure.Contact> InsertContactDetailAsync(Contact.Infrastructure.ContactDetail contactDetail);
         public Task RemoveContactDetailAsync(int contactDetailId);
     }
 }

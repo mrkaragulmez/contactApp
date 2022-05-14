@@ -21,7 +21,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{5C455E6C-D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Background", "Background", "{D862CEA6-513A-4F42-901D-426C7288E884}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackgroundService", "Background\BackgroundService\BackgroundService.csproj", "{BCC0149F-20AD-4820-B269-F68EDBC5605C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackgroundService", "Background\BackgroundService\BackgroundService.csproj", "{BCC0149F-20AD-4820-B269-F68EDBC5605C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DatabasesBackups", "DatabasesBackups", "{2AA51F5D-75CA-487E-871B-52ED55F1AA9C}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\Desktop\ContactDB = ..\..\..\..\Desktop\ContactDB
+		..\..\..\..\Desktop\ReportDB = ..\..\..\..\Desktop\ReportDB
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

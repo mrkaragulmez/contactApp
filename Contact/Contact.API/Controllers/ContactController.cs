@@ -70,7 +70,7 @@ namespace Contact.API.Controllers
 
         [HttpPost]
         [Route("insertcontactdetail")]
-        public async Task<int> InsertContactDetail(ContactDetail contactDetail)
+        public async Task<ActionResult<Infrastructure.Contact>> InsertContactDetail(ContactDetail contactDetail)
         {
             ContactDetail _contactDetail = new ContactDetail();
             _contactDetail.ContactID = contactDetail.ContactID;
@@ -78,8 +78,8 @@ namespace Contact.API.Controllers
             _contactDetail.InformationContent = contactDetail.InformationContent;
             _context.ContactDetails.Add(_contactDetail);
             await _context.SaveChangesAsync();
-
-            return _contactDetail.ContactID;
+            
+            return _context.Contacts.Find(contactDetail.ContactID);
         }
 
         [HttpDelete]
@@ -95,11 +95,6 @@ namespace Contact.API.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
-        }
-
-        private bool ContactExists(int id)
-        {
-            return _context.Contacts.Any(e => e.ContactID == id);
         }
     }
 }

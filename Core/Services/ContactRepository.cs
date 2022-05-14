@@ -44,13 +44,13 @@ namespace ContactApp.Services
             await restClient.ExecuteAsync(restRequest);
         }
 
-        public async Task<int> InsertContactDetailAsync(ContactDetail contactDetail)
+        public async Task<Contact.Infrastructure.Contact> InsertContactDetailAsync(ContactDetail contactDetail)
         {
             RestClient restClient = new RestClient("http://localhost:6561");
             RestRequest restRequest = new RestRequest("/contact/insertcontactdetail", Method.Post);
             restRequest.AddJsonBody(contactDetail);
             RestResponse restResponse = await restClient.ExecuteAsync(restRequest);
-            return JsonConvert.DeserializeObject<int>(restResponse.Content);
+            return JsonConvert.DeserializeObject<Contact.Infrastructure.Contact>(restResponse.Content);
         }
 
 

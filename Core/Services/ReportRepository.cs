@@ -8,12 +8,12 @@ namespace ContactApp.Services
 {
     public class ReportRepository : IReportRepository
     {
-        public async Task<int> CreateReportAsync()
+        public async Task<Report.Infrastructure.Report> CreateReportAsync()
         {
             RestClient restClient = new RestClient("http://localhost:5629");
             RestRequest restRequest = new RestRequest("/report", Method.Post);
             RestResponse restResponse = await restClient.ExecuteAsync(restRequest);
-            return JsonConvert.DeserializeObject<int>(restResponse.Content);
+            return JsonConvert.DeserializeObject<Report.Infrastructure.Report>(restResponse.Content);
         }
 
         public async Task<Report.Infrastructure.Report> GetReportAsync(int reportId)

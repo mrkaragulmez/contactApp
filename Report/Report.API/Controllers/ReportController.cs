@@ -34,12 +34,13 @@ namespace Report.API.Controllers
         {
             Infrastructure.Report report = new Infrastructure.Report();
             report.RequestDate = DateTime.Now;
-            report.FilePath = $"{_hostingEnvironment.ContentRootPath}\\GeneratedReports\\ContactReport_{report.RequestDate.ToString("dd/MM/yyyy")}";
+            Random random = new Random();
+            report.FilePath = $"{_hostingEnvironment.ContentRootPath}\\GeneratedReports\\ContactReport_{report.RequestDate.ToString("ddMMyyyyHHmmss_")+random.Next(0,1000)}.xlsx";
             _context.Reports.Add(report);
             int saved = await _context.SaveChangesAsync();
             if (saved > 0)
             {
-                CreateDocument(report);
+                CreateDocument(new { ID = report.ID, FilePath = report.FilePath });
                 return CreatedAtAction("GetReport", new { id = report.ID }, report);
             }
             else
@@ -65,6 +66,22 @@ namespace Report.API.Controllers
             {
                 return NotFound();
             }
+
+            return report;
+        }
+        // PUT: Report/5
+        [HttpPost]
+        [Route("updatereportstatus/{id}/{status}")]
+        public async Task<ActionResult<Infrastructure.Report>> UpdateReportStatus(int id, string status)
+        {
+            var report = await _context.Reports.FindAsync(id);
+
+            if (report == null)
+            {
+                return NotFound();
+            }
+            report.Status = status;
+            await _context.SaveChangesAsync();
 
             return report;
         }

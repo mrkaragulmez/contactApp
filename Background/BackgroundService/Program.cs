@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace BackgroundService
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -30,14 +30,14 @@ namespace BackgroundService
             Console.ReadLine();
         }
 
-        private static async Task SaveReportDocument(ProducerRequestModel model)
+        public static async Task SaveReportDocument(ProducerRequestModel model)
         {
-            CreateExcel(model.FilePath, GetReports());
+            CreateExcel(model?.FilePath, GetReports());
             RestClient restClient = new RestClient("http://localhost:5629");
-            RestRequest restRequest = new RestRequest($"/report/updatereportstatus/{model.ID}/COMPLETED", Method.Post);
+            RestRequest restRequest = new RestRequest($"/report/updatereportstatus/{model?.ID}/COMPLETED", Method.Post);
             await restClient.ExecuteAsync(restRequest);
         }
-        private static void CreateExcel(string FilePath, List<ReportModel> model)
+        public static void CreateExcel(string FilePath, List<ReportModel> model)
         {
             WorkBook workbook = WorkBook.Create(ExcelFileFormat.XLSX);
             var sheet = workbook.CreateWorkSheet("ReportSheet");
@@ -54,7 +54,7 @@ namespace BackgroundService
             workbook.SaveAs(FilePath);
         }
 
-        private static List<ReportModel> GetReports()
+        public static List<ReportModel> GetReports()
         {
             RestClient restClient = new RestClient("http://localhost:6561");
             RestRequest restRequest = new RestRequest("/contact", Method.Get);
@@ -79,7 +79,7 @@ namespace BackgroundService
             return reportModels;
         }
 
-        private static List<string> GetLocationList(List<Contact> contacts)
+        public static List<string> GetLocationList(List<Contact> contacts)
         {
             List<string> locationList = new List<string>();
             foreach (var item in contacts)
@@ -90,7 +90,7 @@ namespace BackgroundService
             return locationList.Distinct().ToList();
         }
 
-        private static IConnection GetConnection()
+        public static IConnection GetConnection()
         {
             ConnectionFactory connectionFactory = new ConnectionFactory()
             {

@@ -29,6 +29,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DatabasesBackups", "Databas
 		..\..\..\..\Desktop\ReportDB = ..\..\..\..\Desktop\ReportDB
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{6A7A4977-CC0B-4C0B-890E-CF9528B9C0A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xUnitTest", "UnitTest\xUnitTest\xUnitTest.csproj", "{B7CA38DD-A7AF-449B-A3E1-17CCF1EC22C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +63,10 @@ Global
 		{BCC0149F-20AD-4820-B269-F68EDBC5605C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCC0149F-20AD-4820-B269-F68EDBC5605C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCC0149F-20AD-4820-B269-F68EDBC5605C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7CA38DD-A7AF-449B-A3E1-17CCF1EC22C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7CA38DD-A7AF-449B-A3E1-17CCF1EC22C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7CA38DD-A7AF-449B-A3E1-17CCF1EC22C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7CA38DD-A7AF-449B-A3E1-17CCF1EC22C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +78,7 @@ Global
 		{AC8F1047-5696-48C5-B910-4475D2F32457} = {E1EB1A5A-09E2-44D0-A1DF-95066D15C9B9}
 		{AA8E0A74-F2F2-44D7-9A3E-2A2313E1437A} = {1451A4AB-6B3E-4BD4-81EE-47044D7596C3}
 		{BCC0149F-20AD-4820-B269-F68EDBC5605C} = {D862CEA6-513A-4F42-901D-426C7288E884}
+		{B7CA38DD-A7AF-449B-A3E1-17CCF1EC22C7} = {6A7A4977-CC0B-4C0B-890E-CF9528B9C0A7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {56749019-95DD-4C47-871D-DA4DF827B2C5}

@@ -424,11 +424,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mrkaragulmez\\source\\repos\\mrkaragulmez\\ContactApp\\Core\\ContactApp.csproj",
+      "projectUniqueName": "C:\\Users\\mrkaragulmez\\source\\repos\\mrkaragulmez\\contactApp\\Core\\ContactApp.csproj",
       "projectName": "ContactApp",
-      "projectPath": "C:\\Users\\mrkaragulmez\\source\\repos\\mrkaragulmez\\ContactApp\\Core\\ContactApp.csproj",
+      "projectPath": "C:\\Users\\mrkaragulmez\\source\\repos\\mrkaragulmez\\contactApp\\Core\\ContactApp.csproj",
       "packagesPath": "C:\\Users\\mrkaragulmez\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mrkaragulmez\\source\\repos\\mrkaragulmez\\ContactApp\\Core\\obj\\",
+      "outputPath": "C:\\Users\\mrkaragulmez\\source\\repos\\mrkaragulmez\\contactApp\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mrkaragulmez\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -445,11 +445,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\mrkaragulmez\\source\\repos\\mrkaragulmez\\ContactApp\\Contact\\Contact.Infrastructure\\Contact.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\mrkaragulmez\\source\\repos\\mrkaragulmez\\ContactApp\\Contact\\Contact.Infrastructure\\Contact.Infrastructure.csproj"
+            "C:\\Users\\mrkaragulmez\\source\\repos\\mrkaragulmez\\contactApp\\Contact\\Contact.Infrastructure\\Contact.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\mrkaragulmez\\source\\repos\\mrkaragulmez\\contactApp\\Contact\\Contact.Infrastructure\\Contact.Infrastructure.csproj"
             },
-            "C:\\Users\\mrkaragulmez\\source\\repos\\mrkaragulmez\\ContactApp\\Report\\Report.Infrastructure\\Report.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\mrkaragulmez\\source\\repos\\mrkaragulmez\\ContactApp\\Report\\Report.Infrastructure\\Report.Infrastructure.csproj"
+            "C:\\Users\\mrkaragulmez\\source\\repos\\mrkaragulmez\\contactApp\\Report\\Report.Infrastructure\\Report.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\mrkaragulmez\\source\\repos\\mrkaragulmez\\contactApp\\Report\\Report.Infrastructure\\Report.Infrastructure.csproj"
             }
           }
         }

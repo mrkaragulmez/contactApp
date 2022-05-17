@@ -16,3 +16,5 @@
 /Background/BackgroundService/obj
 /Core/obj/Release/net5.0
 /Report/Report.API/.vs/Report.API
+/UnitTest/xUnitTest/bin/Debug/net5.0
+/UnitTest/xUnitTest/obj

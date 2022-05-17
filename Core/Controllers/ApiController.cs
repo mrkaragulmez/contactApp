@@ -1,6 +1,7 @@
 ﻿using Contact.Infrastructure;
 using ContactApp.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -71,6 +72,10 @@ namespace ContactApp.Controllers
         [Route("createreport")]
         public async Task<Report.Infrastructure.Report> CreateReportAsync()
         {
+            if (false)
+            {
+                throw new Exception();
+            }
             return await reportRepository.CreateReportAsync();
         }
 
